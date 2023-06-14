@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Compression Website</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Image Compression Website</h1>
+  </header>
+  <main>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="imageFile" accept="image/*" required>
+      <button type="submit">Compress Image</button>
+    </form>
+    <div id="progressBarContainer">
+      <div id="progressBar"></div>
+    </div>
+    <div id="downloadContainer" style="display: none;">
+      <h2>Compressed Image</h2>
+      <a id="downloadLink" href="#" download="compressed_image.jpg">Download</a>
+    </div>
+  </main>
+  <script src="client.js"></script>
+</body>
+</html>
