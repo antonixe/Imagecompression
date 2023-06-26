@@ -1,68 +1,69 @@
-# Image Compression Website
+# Image Compression Web
 
-This is a web application designed to compress images. It provides a user-friendly interface for uploading an image, compressing it, and downloading the compressed version.
+This is a simple web application built using Flask framework that allows users to compress images. The application accepts an image file from the user, compresses it using JPEG optimization with a quality setting of 30, and returns the compressed image for download.
 
-## Table of Contents
+## Requirements
 
-- [Introduction](#introduction)
-- [Usage](#usage)
-- [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-The Image Compression Website is a project aimed at providing an easy way to compress images without compromising their quality. It utilizes a combination of HTML, CSS, and JavaScript to create a user interface that allows users to upload an image and perform compression operations on it.
-
-## Usage
-
-To use the Image Compression Website, follow these steps:
-
-1. Clone the repository or download the source code.
-2. Open the `index.html` file in a web browser.
-3. Click on the "Choose File" button to select an image file from your local system.
-4. Click the "Compress Image" button to initiate the compression process.
-5. Wait for the compression to complete. The progress bar will show the progress.
-6. Once the compression is finished, a download link will appear.
-7. Click on the download link to save the compressed image to your local system.
-
-Please note that the project is not yet complete and requires additional Python functionality to fully work.
+- Python 3.x
+- Flask
+- PIL (Python Imaging Library)
 
 ## Installation
 
-To install the Image Compression Website, follow these steps:
+1. Clone the repository or download the source code files.
 
-1. Clone the repository:
-
-   ```shell
-   git clone https://github.com/your-username/your-repository.git
-   ```
-
-   Alternatively, you can download the source code as a ZIP file and extract it.
-
-2. Open the project directory:
+2. Install the required dependencies using pip:
 
    ```shell
-   cd your-repository
+   pip install flask pillow
    ```
 
-3. Launch the website by opening the `index.html` file in a web browser.
+## Usage
 
-## Contributing
+1. Open a terminal or command prompt and navigate to the project directory.
 
-Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
+2. Run the Flask application by executing the following command:
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and test them thoroughly.
-4. Commit your changes with descriptive commit messages.
-5. Push your changes to your forked repository.
-6. Submit a pull request detailing your changes.
+   ```shell
+   python app.py
+   ```
+
+   The web application will start running on the local development server.
+
+3. Open a web browser and visit `http://localhost:5000` to access the image compression web interface.
+
+4. Choose an image file using the provided file input field.
+
+5. Click the "Compress" button to initiate the compression process.
+
+6. Once the compression is complete, the compressed image will be downloaded automatically.
+
+## Code Overview
+
+- The Flask application is created using the `Flask` class from the `flask` module.
+
+- The root route (`'/'`) serves the `index.html` file, which contains the web interface for image compression.
+
+- The `/compress` route handles the compression process. It accepts a POST request with an image file, compresses the image using the `PIL` library, and returns the compressed image for download.
+
+- The `send_file` function from Flask is used to send the compressed image as a response.
+
+- The `app.run()` statement starts the Flask development server.
+
+## Customize
+
+You can customize the application according to your requirements. Here are some possible modifications:
+
+- Modify the `index.html` file to change the appearance and layout of the web interface.
+
+- Adjust the compression quality by modifying the `quality` parameter in the `picture.save()` function. Higher values (e.g., 70) result in better quality but larger file sizes.
+
+- Customize the MIME type and download filename by modifying the `mimetype` and `download_name` parameters in the `send_file` function.
+
+- Add additional error handling or validation logic to handle different scenarios.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE). Feel free to modify and use it according to your needs.
 
-## Disclaimer
-
-Please note that the project is currently under development and not yet complete. It requires additional Python functionality to fully work. Contributions and improvements are encouraged.
+**Note:** It's always a good practice to handle security and performance considerations when deploying a web application to a production environment.
